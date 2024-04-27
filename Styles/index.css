@@ -1,0 +1,39 @@
+@import "base.css";
+
+html {
+    --item-size: min(60vh, 60vw);
+    --item-vert-centre: 65vh;
+    --item-horz-centre: 20vw;
+
+}
+
+.item {
+    position: fixed;
+    z-index: 2;
+    top: calc(var(--item-vert-centre) - var(--item-size) / 2);
+}
+
+.left {
+    left: calc(var(--item-horz-centre) - var(--item-size) / 2);
+}
+
+.right {
+    right: calc(var(--item-horz-centre) - var(--item-size) / 2);
+}
+
+.item img {
+    width: var(--item-size);
+    height: auto;
+}
+
+.front {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    clip-path: circle(0%);
+    transition: clip-path 2s;
+}
+
+.item:hover > .front{
+    clip-path: circle(100%);
+}

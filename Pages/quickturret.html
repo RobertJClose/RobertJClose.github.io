@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			Quick Turret!
+		</title>
+        <link rel="stylesheet" href="../Styles/quickturret.css">
+	</head>
+	<body>
+		<div class="mainblock">
+			<h1>Quick Turret</h1>
+			<p>
+				I set out one night to try and make a turret in Unity as fast as I possibly could.
+			</p>
+			<p>
+				Then I accidentally made a game. Oops!
+			</p>
+				<p>
+					<a href="https://justrob96.itch.io/quick-turret-demo" target="_blank" class="itchlink">Play Quick Turret on itch.io!</a>
+				</p>
+			<p>
+				Okay... it's not winning any awards...
+			</p>
+			<p>
+				But I swear under the hood its built from some pretty great pieces! Let's take a look...
+			</p>
+			<h2>Dealing Damage!</h2>
+			<p>
+				I love the game Risk Of Rain 2. Whenever I play it I'm always so impressed at how smoothly the game handles vast amounts of damage being dealt all over the place.
+			</p>
+			<p>
+				You have the players unleashing hell, the enemies fighting back, and the environmental hazards getting destroyed and retaliating explosively. I know the game is made in Unity, and it was clear to me that all these scenarios made use of the same underlying system.
+			</p>
+			<p>
+				So I set about finding a clean and scalable design that emulated Risk Of Rain...
+			</p>
+			<img src="../Media/Hurtable Diagram.png" alt="Diagram showing Hurtable component">
+			<p>
+				Using Unity's component system I was able to encapsulate anything damage related in its own Hurtable world. Anyone in the universe beyond that can simply subscribe to the appropriate events if they want to know "who hurt you?"
+			</p>
+			<p>
+				The best thing about this design however is how easily it can be reused on anything else in the game. If I later wanted to make the mobs fight back against my turrets, or I wanted to implement exploding barrels, I simply attach Hurtable to the GameObjects and give Hurt() a call. 
+			</p>
+
+			<h2>Displaying Damage!</h2>
+			<p>
+				Damage in Risk Of Rain can come in a huge variety of types, and the type of damage is communicated through the style of the text that appears when something gets hurt. Implementing this in a clean and super scalable way was a good challenge!
+			</p>
+			<img src="../Media/Damage Factory Diagram.png" alt="Diagram showing DamageTextFactory component">
+			<p>
+				I designed these classes such that there is a default style that can be used as a fallback for each of the styling options. Then I was able to use the order of the "Overrides" list as the priority with which Stylings are applied.
+			</p>
+			<p>
+				What happens if I decide later than I need to add new damage types? Nothing! The default styling can happily apply to damage of the new type until it's time to create a custom Styling. This is what I mean when I say this design is super scalable!
+			</p>
+			<p>
+				Finally, I also made it possible for each Styling to only apply a subset of the possible style options. This made it possible to represent multiple damage types being present at once, which was already a feature of the design of Hurtable.
+			</p>
+			<p>
+				For example, critical damage creates massive long-lasting text with a red outline, while blocked damage has a high priority to produce text that's coloured dark grey. These mutually exclusive overrides can be applied simultaneously to make it clear to the player when their critical hits are getting blocked:
+			</p>
+			<img src="../Media/Damage Text Types.png" alt="Types Of Damage Text">
+
+			<h2>Getting Around!</h2>
+			<p>
+				I extended the Unity Editor with custom behaviour all throughout this project.
+			</p>
+			<p>
+				This started when I began designing the path that the mobs would follow. I had a big mess of waypoint GameObjects and references to them. It was an absolute nightmare to keep track of which waypoints were where, and what connections existed between them. Making even a small change to the path proved to be a massive task.
+			</p>
+			<p>
+				When I was done I'd invented a new category of speedrun...
+			</p>
+			<video src="../Media/Waypoints Demonstration.mp4" autoplay="" controls="" loop=""></video>
+			<img src="../Media/Waypoints Component Features.png" alt="Waypoint Component Features">
+
+			<h2>Target Acquired!</h2>
+			<p>
+				To make the game more interesting I decided I would design a powerful targetting system. Not only did I think this would enable me to create diverse enemies, I also thought it would give the player interesting choices for target prioritisation. In the next and final section we will meet the different types of ammo the turrets can fire, and I thought this would complete the core strategic problem posed by the game.
+			</p>
+			<p>
+				As it happens, the enemy design/targetting choice/ammo choice interaction wasn't as fruitful as I imagined.
+			</p>
+			<p>
+				With that said, I don't believe the design of the targetting system was at fault. It's more that I failed to find enemy designs that capitalised on that interaction before I decided it was time to bring the project to an end.
+			</p>
+			<img src="../Media/Targetting System Diagram.png" alt="Targetting System Diagram">
+			<p>
+				What I imagined is that, over time within a level, the player could develop their own style of defensive system built from a choice of turrets working together as units. Faced with a diverse array of threats, the player could have intelligent turrets that swap targets to deliver their ammo in the places where they'd make the most difference.
+			</p>
+			<p>
+				I imagined such a system would work through enemies being composed of various subtargets. Then each enemy is tagged not just as a whole, but each subtarget has some tags as well. A boss enemy could be a high priority for lots of turrets across the player's defences. Other enemies might sponge up damage until a particular subtarget is destroyed by a turret with the right kind of ammo - at which point that enemy becomes weak to everyone and that turret can look elsewhere.
+			</p>
+			<p>
+				I do believe I implemented a system which could deliver this kind of experience, but the final Quick Turret demo didn't really have the scale or calibre of enemies to fully make use of it.
+			</p>
+			<p>
+				I'm proud of the system all the same.
+			</p>
+			<img src="../Media/SubtargetGizmos.png" alt="Targetting System Custom Inspectors">
+
+			<h2>The Quick Turrets!</h2>
+			<p>
+				Remember how turrets were the focus of this project?
+			</p>
+			<p>
+				Their final design was quite different from <i>the</i> quick turret I built that first night!
+			</p>
+			<img src="../Media/Turret Component Diagram.png" alt="Turret Component Diagram">
+			<p>
+				I broke the functioning of the turret down into many components, each one implementing a single behaviour (duh that's why they're called MonoBehaviours). While the coordinating job of the turret controller might seem complex, the interface of each turret component can be super simple, and the turret controller code thus reads like the simple sequence of steps that are depicted above.
+			</p>
+			<p>
+				The most interesting component here is the Autoloader! I was inspired by the game War Thunder, in which you can equip your aircraft with different belts of ammunition to match the target that you expect to be using the ammo on. Each belt is not a simple homogeneous block of bullets however, there are a variety of bullet types and they are mixed in different proportions to produce the different belts. The design is realistic and <i>feels</i> immersive, while also being practical in preventing any one belt from staying too far from general purpose use. I built my Autoloader component to mimic this behaviour.
+			</p>
+			<img src="../Media/AutoloaderComponent.png" alt="Autoloader Custom Inspector">
+			<p>
+				This project gave me a lot of experience in creating custom Inspectors. I imagined myself as a designer with little coding experience, and I thought about how that person would use the components I was creating. 
+			</p>
+			<p>
+				The entire reason to use Unity is that the game making process has been made much simpler for you - I feel Unity is at its best for designers when you can iterate quickly through plug-and-play pieces that you adjust easily with friendly user interfaces. 
+			</p>
+			<p>
+				While I think the Editor extensions for the Waypoint component did the most to replace complexity with simplicity, the above custom Inspector for the Autoloader is probably still my favourite. There wasn't much complexity to encapsulate, but I still created something neat and tidy that designer-hat Robbo loved using. 
+			</p>
+
+			<h2>Thanks for reading!</h2>
+
+			<img src="../Media/Turret No Text.png" alt="Minigun Turret">
+
+		</div>
+
+		<footer>
+			Contact me: <a href="mailto:robertclose@pm.me">RobertClose@pm.me</a>
+		</footer>
+	</body>
+</html>
