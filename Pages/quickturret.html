@@ -82,7 +82,7 @@
 				As it happens, the enemy design/targetting choice/ammo choice interaction wasn't as fruitful as I imagined.
 			</p>
 			<p>
-				With that said, I don't believe the design of the targetting system was at fault. It's more that I failed to find enemy designs that capitalised on that interaction before I decided it was time to bring the project to an end.
+				With that said, I don't believe the design of the targetting system was at fault. What really hampered me is sheer inexperience with Blender. I basically threw together whatever basic geometry I could muster, and the resulting designs didn't realy mesh with the targetting system in the way they could have. To spend that time learning Blender would've been to go out of scope of this project, so the original designs stuck.
 			</p>
 			<img src="../Media/Targetting System Diagram.png" alt="Targetting System Diagram">
 			<p>
@@ -111,7 +111,7 @@
 				I broke the functioning of the turret down into many components, each one implementing a single behaviour (duh that's why they're called MonoBehaviours). While the coordinating job of the turret controller might seem complex, the interface of each turret component can be super simple, and the turret controller code thus reads like the simple sequence of steps that are depicted above.
 			</p>
 			<p>
-				The most interesting component here is the Autoloader! I was inspired by the game War Thunder, in which you can equip your aircraft with different belts of ammunition to match the target that you expect to be using the ammo on. Each belt is not a simple homogeneous block of bullets however &ndash; there are a variety of bullet types and they are mixed in different proportions to produce the different belts. The design is realistic and <i>feels</i> immersive, while also being practical in preventing any one belt from straying too far from general purpose use. I built my Autoloader component to mimic this behaviour.
+				The most interesting component here is the Autoloader! I was inspired by the game War Thunder, in which you can equip your aircraft with different belts of ammunition to match the target that you expect to be using the ammo on. Each belt is composed of a variety of bullet types and they are mixed in different proportions to produce the different belts. The design is realistic and that brings immersion, while also being practical in preventing any one belt from straying too far from general purpose use. I built my Autoloader component to mimic this behaviour. The difference being that players in my game can customise the belts with whatever bullet type is available.
 			</p>
 			<img src="../Media/AutoloaderComponent.png" alt="Autoloader Custom Inspector">
 			<p>
@@ -131,7 +131,12 @@
 		</div>
 
 		<footer>
-			Contact me: <a href="mailto:robertclose@pm.me">RobertClose@pm.me</a>
+			<p>
+				<a href="../index.html">Home</a>
+			</p>
+			<p>
+				Contact me: <a href="mailto:robertclose@pm.me">RobertClose@pm.me</a>
+			</p>
 		</footer>
 	</body>
 </html>
