@@ -19,7 +19,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     text-align: center;
-    font-family: Kristen ITC;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h1 {
@@ -52,4 +52,11 @@ footer {
     background-color: white;
 
     font-size: 1rem;
+
+    display: grid;
+    grid-template-columns: 15vw 70vw 15vw;
+}
+
+footer * {
+    margin: 0;
 }
