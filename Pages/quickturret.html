@@ -43,25 +43,6 @@
 				The best thing about this design however is how easily it can be reused on anything else in the game. If I later wanted to make the mobs fight back against my turrets, or I wanted to implement exploding barrels, I simply attach Hurtable to the GameObjects and give Hurt() a call. 
 			</p>
 
-			<h2>Displaying Damage!</h2>
-			<p>
-				Damage in Risk Of Rain can come in a huge variety of types, and the type of damage is communicated through the style of the text that appears when something gets hurt. Implementing this in a clean and super scalable way was a good challenge!
-			</p>
-			<img src="../Media/Damage Factory Diagram.png" alt="Diagram showing DamageTextFactory component">
-			<p>
-				I designed these classes such that there is a default style that can be used as a fallback for each of the styling options. Then I was able to use the order of the "Overrides" list as the priority with which Stylings are applied.
-			</p>
-			<p>
-				What happens if I decide later than I need to add new damage types? Nothing! The default styling can happily apply to damage of the new type until it's time to create a custom Styling. This is what I mean when I say this design is super scalable!
-			</p>
-			<p>
-				Finally, I also made it possible for each Styling to only apply a subset of the possible style options. This made it possible to represent multiple damage types being present at once, which was already a feature of the design of Hurtable.
-			</p>
-			<p>
-				For example, critical damage creates massive long-lasting text with a red outline, while blocked damage has a high priority to produce text that's coloured dark grey. These mutually exclusive overrides can be applied simultaneously to make it clear to the player when their critical hits are getting blocked:
-			</p>
-			<img src="../Media/Damage Text Types.png" alt="Types Of Damage Text">
-
 			<h2>Getting Around!</h2>
 			<p>
 				I extended the Unity Editor with custom behaviour all throughout this project.
