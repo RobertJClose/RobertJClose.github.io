@@ -37,7 +37,7 @@ p {
     padding-right: 10vw;
 }
 
-p.tagline {
+.page-intro p {
     text-align: center;
     font-size: 1.2rem;
 }
