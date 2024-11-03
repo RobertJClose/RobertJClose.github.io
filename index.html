@@ -10,22 +10,79 @@
 	<body>
 		
 		<h1>RobboNet</h1>
-		<p>
-			Welcome.
+		<p class="tagline">
+			Hi, my name is Robert, and I am a Unity programmer. 
 		</p>
-		
-		<a href="Pages/quickturret.html">
-			<div class="item left">
-				<img src="Media/turret0.png" alt="Grey Turret Model" class="back">
-				<img src="Media/turret1.png" alt="Coloured Turret Model" class="front">
-			</div>
+		<h2>Projects</h2>
+		<h3>The Double Precision Maths Library</h3>
+		<p>
+			My biggest project to date is the <b>Double Precision Maths Library</b>. This is a rewrite of the Unity maths and
+			physics types like Vector3 and Matrix4x4, except they are now backed by double precision floating-point numbers.
+		</p>
+		<p>
+			I wrote, from scratch, all of the maths code necessary for a 3D rendering engine. I researched the methods, implemented
+			them, and then tested them throughly. A uniquely challenging aspect of the development was that I had to mimic the Unity
+			libraries as closely as possible. In places, the Unity documentation was lacking in precise definitions and choices as per conventions. In those cases I had to
+			conduct my own meticulous and finely detailed investigations. As you can imagine, I became super familiar and learnt a lot about those classes. For example, did you know that 
+			in some cases for Unity Quaternions, <code>a==a</code> is <code>false</code>!
+		</p>
+		<p>
+			The library is live on the Unity Asset Store, while its professional-quality documentation lives here.
+		</p>
+		<h3>Orbit Sandbox (Revival Game Jam)</h3>
+		<p>I very recently completed the <b>Orbit Sandbox</b>, which was a submission for
+		<a href="https://itch.io/jam/revival-jam-2024" target="_blank">Revival Game Jam
 		</a>
-		
-		<a href="https://robertjclose.github.io/DPML-documentation/" target="_blank">
-			<div class="item right">
-				<img src="Media/DPML_MainImage.png" alt="Double Precision Maths Library Link" class="back">
+		. The theme was to take something "dead" and revive it. A few years ago, when I began my Unity journey, I coded a
+		rudimentary tool to be used alongside Kerbal Space Program. For the jam, I decided to dive back into that codebase
+		to revive what lay within using my much improved skills. 
+		</p>
+		<p>
+		I restructured the internal class hierarchy to improve the modularity
+		and reduce the cognitive load of the code. I also rewrote some comprehensive test suites to guarantee the correctness
+		of the methods, writing 542 tests in the jam's three weeks. Finally, I built new and improved MonoBehaviour components to make it super simple and easy to
+		bring the orbital mechanics into a Unity Scene.
+		</p>
+		<p>
+		Of course, in that time I also had to actually use the code to make
+		something interactive too, so I built a small sandbox in which you can play around with an orbiting alien.
+		</p>
+		<h3>Quick Turret!</h3>
+		<p>
+			Another noteworthy project of mine is titled <b>Quick Turret</b>. This is a small tower defence prototype, and
+			represents my blossoming ability to write simple and effective game systems in a modular manner. I also extensively
+			customised the Unity Editor during this project, making the systems really pleasant to use and configure from a designer's
+			perspective.
+		</p>
+		<h3>Project Cipher</h3>
+		<p>
+			Finally, I have a work-in-progress game called <b>Project Cipher</b> in development. I read an amazing book recently
+			called <i>The Codebreakers</i>, and learnt a few things.
+			</p>
+			<p>
+			First of all, it's super feasible for one to learn how to crack
+			enciphered messages. Secondly, learning how to do that is quite a fun experience. Finally, there's been some absolutely
+			amazing stories in history involving secret messages and people's efforts to crack them. I realised I could capture the
+			spirit of this book in a small game, and that's what I've working on.
+		</p>
+		<div class="flex-container">
+			<div class="flex-item">
+				<a href="https://robertjclose.github.io/DPML-documentation/" target="_blank">
+					<img src="Media/DPML_MainImage.png" alt="Double Precision Maths Library Link">
+				</a>
 			</div>
-		</a>
+			<div class="flex-item">
+				<a href="https://justrob96.itch.io/orbit-sandbox target="_blank">
+					<img src="Media/Orbit Sandbox Image.png" alt="Orbit Sandbox">
+				</a>
+			</div>
+			<div class="flex-item">
+				<a href="Pages/quickturret.html">
+					<img src="Media/turret0.png" alt="Grey Turret Model">
+					<img src="Media/turret1.png" alt="Coloured Turret Model" class="front">
+				</a>
+			</div>
+		</div>
 
 		<footer>
 			<p>
