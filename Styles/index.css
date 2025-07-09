@@ -1,7 +1,7 @@
 @import "base.css";
 
 html {
-    --flex-item-size: 33vw;
+    --flex-item-size: 25vw;
 }
 
 .flex-container {
