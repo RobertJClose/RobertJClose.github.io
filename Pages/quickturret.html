@@ -12,14 +12,24 @@
 			<h1>Quick Turret</h1>
 			<div class="page-intro">
 				<p>
-					I set out one night to try and make a turret in Unity as fast as I possibly could. I ended up making it into a small game demo!
+					I set out one night to try and make a turret in Unity as fast as I possibly could. I ended up making it into a small game demo.
 					<p>
 						<a href="https://justrob96.itch.io/quick-turret-demo" target="_blank" class="itchlink">Play Quick Turret on itch.io!</a>
 					</p>
-				<p>
-					As a game, it's not the most complete product. I'm quite proud of the internal systems that make it work however, so let's take a look.
 				</p>
 			</div>
+			<h2>The Modular Systems</h2>
+			<p>
+				I tried to focus on making modular systems that could work together without tight coupling. I was able to do this for the game's damage system, the targetting system, and for the operation of the turrets. The resulting designs can be neatly described by the following UML diagrams:
+				<h3>The Damage System</h3>
+				<img src="../Media/Hurtable Diagram.png" alt="Diagram showing Hurtable component">
+				<h3>Generating Damage Text Of Multiple Concurrent Types</h3>
+				<img src="../Media/Damage Factory Diagram.png" alt="Diagram showing DamageTextFactory component">
+				<h3>The Targetting System</h3>
+				<img src="../Media/Targetting System Diagram.png" alt="Targetting System Diagram">
+				<h3>The Turrets</h3>
+				<img src="../Media/Turret Component Diagram.png" alt="Turret Component Diagram">
+			</p>
 			<h2>Dealing Damage!</h2>
 			<p>
 				I love the game Risk Of Rain 2. Whenever I play it I'm always so impressed at how smoothly the game handles vast amounts of damage being dealt all over the place.
@@ -128,8 +138,6 @@
 			<p>
 				With that said, the game design as a whole could do with some work. As mentioned above, I was limited by my rudimentary Blender skills, and couldn't really give myself an opportunity to fully flex the muscles of the intelligent targetting system. Something for the future.
 			</p>
-
-			<h2>Thanks for reading!</h2>
 
 			<img src="../Media/Turret No Text.png" alt="Minigun Turret">
 
